@@ -1,0 +1,30 @@
+{
+  "name": "ai-bug-tracker",
+  "version": "1.0.0",
+  "description": "for submitting easy bug reports",
+  "main": "index.js",
+  "scripts": {
+  "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/innasGH/ai-bug-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/innasGH/ai-bug-tracker/issues"
+  },
+  "homepage": "https://github.com/innasGH/ai-bug-tracker#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.1"
+  }
+}
