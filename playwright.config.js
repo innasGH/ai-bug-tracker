@@ -33,6 +33,13 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
 
+  webServer: {
+    command: 'node server.js', // Start the server before running tests
+    port: 3002, // Ensure it matches the Playwright test URL
+    timeout: 10000, // Wait up to 10 seconds for the server to start
+    reuseExistingServer: !process.env.CI,
+  },
+
   /* Configure projects for major browsers */
   projects: [
     {
