@@ -22,15 +22,17 @@ test('User can update a bug status', async ({ page }) => {
     await page.click('button[type="submit"]');
 
     // Wait for the bug to appear
-    const lastBug = page.locator('ul#bugList li').last();
-    await expect(lastBug).toContainText('Bug to be updated');
+    const bugToUpdate = page.locator('ul#bugList li').filter({ hasText: 'Bug to be updated' }).first();
+    await expect(bugToUpdate).toBeVisible();
+
+
 
     // Change status to "Resolved"
-    await lastBug.locator('.status-dropdown').selectOption('Resolved');
-    await lastBug.locator('.update-status').click();
+    await bugToUpdate.locator('.status-dropdown').selectOption('Resolved');
+    await bugToUpdate.locator('.update-status').click();
 
     // Verify status update
-    await expect(lastBug).toContainText('Resolved');
+    await expect(bugToUpdate).toContainText('Resolved');
 });
 
 
