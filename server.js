@@ -27,6 +27,19 @@ app.get('/bugs', (req, res) => {
     res.json(bugReports);
 });
 
+app.patch('/update-bug/:id', (req, res) => {
+    const bugId = parseInt(req.params.id);
+    const { status } = req.body;
+
+    const bug = bugReports.find(b => b.id === bugId);
+    if (!bug) {
+        return res.status(404).json({ message: "Bug not found" });
+    }
+
+    bug.status = status;
+    res.json({ message: "Bug status updated successfully", bug });
+});
+
 // Explicitly bind to 0.0.0.0 to ensure it's reachable
 const PORT = process.env.PORT || 3002;
 const server = app.listen(PORT, '0.0.0.0', () => {
